@@ -58,11 +58,16 @@ mark {
     visibility: hidden;
 }
 
+p{
+    font-family: Microsoft JhengHei UI;
+}
+
 h1, h2, h3,
 h4, h5, h6 {
     color: #000;
     margin-bottom: 0;
     padding-bottom: 0;
+    font-family: Microsoft JhengHei UI;
 }
 
 h1 {
