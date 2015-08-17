@@ -399,25 +399,6 @@ aside {
     margin: 5px 0 0 10px;
 }
 
-/* Flexible iFrame */
-
-.Flexible-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 30px;
-    height: 0;
-    overflow: hidden;
-}
-
-.Flexible-container iframe,   
-.Flexible-container object,  
-.Flexible-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
 /* forms */
 fieldset {
     border: none;
@@ -777,4 +758,48 @@ tr.pager td {
         footer p {
             margin: 0;
         }
+}
+
+
+/*自訂CSS*/
+.container{
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container::after{
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+
+.header{
+    float: left;
+    width: 100%;
+}
+
+.contact, .map-wrapper{
+    float: left;
+}
+
+.contact {
+  width: calc(100% / 2);
+}
+
+.map-wrapper {
+  width: calc(100% / 2);
+}
+
+@media(max-width: 480px){
+    .contact, .map-wrapper{
+        width: 80%;
+    }
+}
+
+@media(min-width: 480px) and (max-width:768px){
+    .contact, .map-wrapper{
+        width: 30%;
+    }
 }

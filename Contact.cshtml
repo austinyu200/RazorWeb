@@ -1,65 +1,47 @@
 ﻿@{
-    Layout = "~/_SiteLayout.cshtml";
-    Page.Title = "聯絡我們";
+	Layout = "~/_SiteLayout.cshtml";
+	//Page.Title = "聯絡我們";
 }
 
-<hgroup class="title">
-    <h1>@Page.Title</h1>
-    <h2></h2>
-</hgroup>
-<div class="float-left">
-<section class="contact">
-    <header>
-        <h3>連絡電話:</h3>
-    </header>
-    <p>
-        <span class="label">電話:</span>
-        <span>886-3-386-7575 </span>
-    </p>
-    <p>
-        <span class="label">業務部分機:</span>
-        <span>333或332</span>
-    </p>
-    <p>
-        <span class="label">傳真:</span>
-        <span>886-3-386-6955</span>    
-    </p>
-</section>
-
-<section class="contact">
-    <header>
-        <h3>Email:</h3>
-    </header>
-    <p>
-        <!--<span class="label">Email</span>-->
-        <span><a href="mailto:service@tangteck.com?subject=客戶網頁回函&amp;body=公司:       電話:       傳真:       聯絡人:      ">service@tangteck.com</a></span>
-    </p>
-    <!--<p>
-        <span class="label">Support:</span>
-        <span><a href="mailto:Support@example.com">Support@example.com</a></span>
-    </p>
-    <p>
-        <span class="label">Marketing:</span>
-        <span><a href="mailto:Marketing@example.com">Marketing@example.com</a></span>
-    </p>
-    <p>
-        <span class="label">General:</span>
-        <span><a href="mailto:General@example.com">General@example.com</a></span>
-    </p>-->
-</section>
-
-<section class="contact">
-    <header>
-        <h3>地址:</h3>
-    </header>
-    <p style="font-family:Microsoft JhengHei UI">
-        
-        台灣桃園縣大園鄉<br />
-        水源路913號<br>      
-    </p>
-</section>
+<div id="body">
+	<div class="container">
+		<div class="header">
+			<h1>聯絡我們</h1>
+		</div>
+		<div class="contact">
+			<header>
+				<h3>連絡電話:</h3>
+			</header>
+			<p>
+				<span class="label">電話:</span>
+				<span class="label">886-3-386-7575</span>
+			</p>
+			<p>
+				<span class="label">業務部分機:</span>
+				<span>333或332</span>
+			<p>
+				<span class="label">傳真:</span>
+				<span>886-3-386-6955</span>
+			</p>
+			<header>
+				<h3>Email:</h3>
+			</header>
+			<p>
+				<span class="label"><a href="mailto:service@tangteck.com?subject=客戶網頁回函&amp;body=公司:       電話:       傳真:       聯絡人:      ">service@tangteck.com</a></span>
+			</p>
+			<header>
+				<h3>地址:</h3>
+			</header>
+			<p>
+				台灣桃園縣大園鄉<br />
+				水源路913號<br>
+			</p>
+		</div>
+		<!--地圖-->
+		<div class="map-wrapper">
+			<iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7203.39951249635!2d121.20753811292252!3d25.03938570626337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346820f1ac46aa9f%3A0x842121785e916af8!2zMzM35qGD5ZyS5biC5aSn5ZyS5Y2A5rC05rqQ6LevOTEz6Jmf!5e0!3m2!1szh-TW!2stw!4v1439804409551"></iframe>
+		</div>
+	</div>
 </div>
-    <div class="Flexible-container right">
-            <!--地圖-->
-        <iframe width="200" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7203.39951249635!2d121.20753811292252!3d25.03938570626337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346820f1ac46aa9f%3A0x842121785e916af8!2zMzM35qGD5ZyS5biC5aSn5ZyS5Y2A5rC05rqQ6LevOTEz6Jmf!5e0!3m2!1szh-TW!2stw!4v1439804409551"></iframe>
-    </div>
+
+	
