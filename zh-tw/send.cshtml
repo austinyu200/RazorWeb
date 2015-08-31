@@ -1,8 +1,30 @@
 ﻿@{
     Layout = "~/zh-tw/_SiteLayout.cshtml";
-    //Page.Title = "產品介紹";    
+    Page.Title = "聯絡我們";    
 }
+@{
+	if(IsPost)
+	{
+		string company = Request.Form["company"];
+        string email = Request.Form["email"];
+        string phone = Request.Form["phone"];
+        string discript = Request.Form["discript"].ToString();
 
+        try
+        {
+            WebMail.SmtpServer = "smtp.live.com";
+            WebMail.SmtpPort = 25;
+            WebMail.EnableSsl = true;
+            WebMail.UserName = "austinyu200@livemail.tw";
+            WebMail.Password = "M3TBT7NB";
+            WebMail.Send(to:email,subject:company + "網站來信", body:discript);
+        }
+        catch(Exception e)
+        {
+            <text>@e</text>
+        }
+	}
+}
 
 <!DOCTYPE html>
 
