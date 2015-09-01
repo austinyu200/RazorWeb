@@ -1,6 +1,10 @@
 ﻿@{
 	Layout = "~/zh-tw/_SiteLayout.cshtml";
 	Page.Title = "聯絡我們";
+	Validation.RequireField("company","這是必填欄位");
+    Validation.RequireField("email","這是必填欄位");
+    Validation.RequireField("phone","這是必填欄位");
+    Validation.RequireField("discript","這是必填欄位");
 }
 
 
@@ -17,13 +21,13 @@
 			</header>
 				<!--<span class="label"><a href="mailto:service@tangteck.com?subject=客戶網頁回函&amp;body=公司:       電話:       傳真:       聯絡人:      ">service@tangteck.com</a></span>-->
 				<form id="mailForm" name="mailForm" method="post" action="send.cshtml">
-					公司名稱<br>
+					單位、公司名稱<br>
 					<input type="text" name="company"><br>
 					E-mail<br>
 					<input type="text" name="email"><br>
-					電話<br>
+					聯絡電話<br>
 					<input type="number" name="phone"><br>
-					描述內容<br>
+					內容<br>
 					<textarea cols="40" rows="8" name="discript"></textarea><br>
 					<input type="submit" value="送出" class="submit">
 				</form>
