@@ -1,12 +1,31 @@
 ﻿@{
 	Layout = "~/zh-tw/_SiteLayout.cshtml";
-	Page.Title = "聯絡我們";
-	Validation.RequireField("company","這是必填欄位");
-    Validation.RequireField("email","這是必填欄位");
-    Validation.RequireField("phone","這是必填欄位");
-    Validation.RequireField("discript","這是必填欄位");
+	Page.Title = "聯絡我們";	
 }
 
+<script>
+	function check()
+	{
+		var company = document.getElementById("company");
+		var email = document.getElementById("email");
+		var phone = document.getElementById("phone");
+		var discript = document.getElementById("discript");
+		var message = "";
+		
+		if(company.value == "")
+			message += "單位、公司名稱為空白\n";
+		if(email.value == "")
+			message += "E-mail為空白\n";
+		if(phone.value == "")
+			message += "連絡電話為空白\n";
+		if(discript.value == "")
+			message += "內容為空白\n";
+		if(message != "")
+			alert(message);
+			
+		return false;
+	}
+</script>
 
 
 <div id="body">
@@ -20,15 +39,15 @@
 				<br>
 			</header>
 				<!--<span class="label"><a href="mailto:service@tangteck.com?subject=客戶網頁回函&amp;body=公司:       電話:       傳真:       聯絡人:      ">service@tangteck.com</a></span>-->
-				<form id="mailForm" name="mailForm" method="post" action="send.cshtml">
+				<form id="mailForm" name="mailForm" method="post" onsubmit="return check()" action="send.cshtml">
 					單位、公司名稱<br>
-					<input type="text" name="company"><br>
+					<input type="text" id="company" name="company"><br>
 					E-mail<br>
-					<input type="text" name="email"><br>
+					<input type="text" id="email" name="email"><br>
 					聯絡電話<br>
-					<input type="number" name="phone"><br>
+					<input type="number" id="phone" name="number"><br>
 					內容<br>
-					<textarea cols="40" rows="8" name="discript"></textarea><br>
+					<textarea cols="40" rows="8" id="discript" name="discript"></textarea><br>
 					<input type="submit" value="送出" class="submit">
 				</form>
 			<header>
