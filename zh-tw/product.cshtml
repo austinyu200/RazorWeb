@@ -3,6 +3,19 @@
     Page.Title = "產品介紹";
 }
 
+@{
+    Database db = Database.Open("RazorWeb");
+    var selectedData = db.Query("select * from products");
+    var grid= new WebGrid(source: selectedData);
+    var dataArray = selectedData.ToArray();
+    string content = null;
+    string  path = null;    
+    foreach(var raw in selectedData)
+    {
+        content = raw.Content;
+        path = raw.Image1;
+    }
+}
 
 <!DOCTYPE html>
 
@@ -14,5 +27,9 @@
     <body>
         測試
         @DateTime.Now;
+        <p>@content</p>
+        <p>@path</p>
+        <img src=@path>
+        <img src="~/Images/logo.png">
     </body>
 </html>
