@@ -18,11 +18,11 @@
 
         try
         {
-            WebMail.SmtpServer = "smtp-mail.outlook.com";   //寄件smtp server
-            WebMail.SmtpPort = 25;                          //smtp port
+            WebMail.SmtpServer = "smtp.live.com";   //寄件smtp server
+            WebMail.SmtpPort = 587;                          //smtp port
             WebMail.EnableSsl = true;                       //啟用SSL
-            WebMail.UserName = "";                          //寄件郵件帳戶
-            WebMail.Password = "";
+            WebMail.UserName = "austinyu200@livemail.tw";                          //寄件郵件帳戶 
+            WebMail.Password = "M3TBT7NB";
             WebMail.From = WebMail.UserName;                //同寄件郵件帳戶
             
             WebMail.Send(to: "austinyu200@yahoo.com.tw",    //收件者

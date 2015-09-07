@@ -1,31 +1,17 @@
-﻿@{
-	Layout = "~/zh-tw/_SiteLayout.cshtml";
-	Page.Title = "聯絡我們";	
+﻿@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 }
 
-<script>
-	function check()
-	{
-		var company = document.getElementById("company");
-		var email = document.getElementById("email");
-		var phone = document.getElementById("phone");
-		var discript = document.getElementById("discript");
-		var message = "";
-		
-		if(company.value == "")
-			message += "單位、公司名稱為空白\n";
-		if(email.value == "")
-			message += "E-mail為空白\n";
-		if(phone.value == "")
-			message += "連絡電話為空白\n";
-		if(discript.value == "")
-			message += "內容為空白\n";
-		if(message != "")
-			alert(message);
-			
-		return false;
-	}
-</script>
+@{
+	Layout = "~/zh-tw/_SiteLayout.cshtml";
+	Page.Title = "聯絡我們";	
+	Validation.RequireField("company","請填寫單位、公司名稱");
+    Validation.RequireField("email","請填寫E-Mail");
+    Validation.RequireField("phone","請填寫電話");
+    Validation.RequireField("discript","請填寫內容");
+}
+
 
 
 <div id="body">
@@ -35,19 +21,22 @@
 		</div>
 		<div class="contact">
 			<header>
-				<h3>service@tangteck.com</h3>
 				<br>
 			</header>
-				<!--<span class="label"><a href="mailto:service@tangteck.com?subject=客戶網頁回函&amp;body=公司:       電話:       傳真:       聯絡人:      ">service@tangteck.com</a></span>-->
+				
 				<form class="email-content" id="mailForm" name="mailForm" method="post" onsubmit="return check()" action="send.cshtml">
 					單位、公司名稱<br>
-					<input type="text" id="company" name="company"><br>
+					<input type="text" id="company" name="company" @Validation.For("company")>
+                    @Html.ValidationMessage("company")<br>
 					E-mail<br>
-					<input type="text" id="email" name="email"><br>
+					<input type="text" id="email" name="email" @Validation.For("email")>
+                    @Html.ValidationMessage("email")<br>
 					聯絡電話<br>
-					<input type="number" id="phone" name="number"><br>
+					<input type="number" id="phone" name="phone" @Validation.For("phone")>
+                    @Html.ValidationMessage("phone")<br>
 					內容<br>
-					<textarea cols="40" rows="8" id="discript" name="discript"></textarea><br>
+					<textarea cols="40" rows="8" id="discript" name="discript" @Validation.For("discript")></textarea>
+                    @Html.ValidationMessage("discript")<br>
 					<input type="submit" value="送出" class="submit">
 				</form>
 			<header>
@@ -63,6 +52,10 @@
 			<p>
 				<span class="label">傳真:</span>
 				<span>886-3-386-6955</span>
+			</p>
+			<p>
+				<span class="label">E-Mail:</span>
+				<span><a href="mailto:service@tangteck.com?subject=客戶網頁回函&amp;body=公司:       電話:       傳真:       聯絡人:      ">service@tangteck.com</a></span>
 			</p>
 			<header>
 				<h3>地址:</h3>

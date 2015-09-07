@@ -1,0 +1,131 @@
+﻿@{
+    Layout = "~/zh-tw/_SiteLayout.cshtml";
+    Page.Title = "產品介紹";
+}
+
+@{
+    Database db = Database.Open("RazorWeb");
+    var selectedData = db.Query("select * from products");
+    var grid= new WebGrid(source: selectedData);
+    var dataArray = selectedData.ToArray();
+    string content = null;
+    string  path = null;    
+    foreach(var raw in selectedData)
+    {
+        content = raw.Content;
+        path = raw.Image1;
+    }
+}
+
+<!DOCTYPE html>
+
+<html lang="zh-tw">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
+        <!--測試
+        @DateTime.Now;
+        <p>@content</p>
+        <p>@path</p>
+        <img src=@path>
+        <img src="~/Images/logo.png">-->
+        <div class="product-page">
+            <div class="page-Header">
+                <h1 class="title">產品分類</h1>
+            </div>
+            <div class="product-class-table">
+                <table width="100%" border="20" cellspazing="0" cellpadding="0">
+                    <tbody>
+                        <tr>
+                            <td style="text-align: center;" colspan="2" align="center" bgcolor="#182988">
+                                <span style="color: #ffffff;">電子工業用爐</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml">無鉛製程迴焊爐SMD系列</a>
+                            </td>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml">氮氣迴焊爐SMD系列</a>
+                            </td>    
+                        </tr>
+                        <tr>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml">植球迴焊爐BGA系列</a>
+                            </td>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml">實驗室用爐PRE系列</a>
+                            </td>    
+                        </tr>
+                        <tr>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml">高溫燒成爐HY & HYD系列</a>
+                            </td>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml">高溫氮氣燒成爐N2 Firing系列</a>
+                            </td>    
+                        </tr>
+                        <tr>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml">低溫燒成固化爐PTF系列</a>
+                            </td>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml">乾燥爐DRY系列</a>
+                            </td>    
+                        </tr>
+                        <tr>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml">生物醫學用爐BIOTIC系列</a>
+                            </td>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml">高溫箱型爐BATCH系列</a>
+                            </td>    
+                        </tr>
+                        <tr>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml">太陽能產業用爐SOLAR CELL系列</a>
+                            </td>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml">CWinTCM軟體</a>
+                            </td>    
+                        </tr>
+                        <tr>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml">工業用爐備品</a>
+                            </td>
+                            <td bgcolor="#E0E0E0" width="50%">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p></p>
+                <table width="100%" border="20" cellspazing="0" cellpadding="0">
+                    <tbody>
+                        <tr>
+                            <td style="text-align: center;" colspan="2" align="center" bgcolor="#182988">
+                                <span style="color: #ffffff;">電子工業用爐</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml">測溫器</a>
+                            </td>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml">測溫器ProWin2軟體</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml">測溫備品</a>
+                            </td>
+                            <td bgcolor="#E0E0E0" width="50%">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
