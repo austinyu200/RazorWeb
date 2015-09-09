@@ -49,7 +49,7 @@ mark {
 
 .float-left {
     float: left;
-    padding: 50px 0px 2px 0px;
+    padding: 20px 0px 2px 0px;
 }
 
 .float-right {
@@ -782,7 +782,7 @@ tr.pager td {
 }
 
 
-/*自訂CSS*/
+/*user define CSS*/
 .container{
     max-width: 100%;
     margin-left: auto;
@@ -814,6 +814,44 @@ tr.pager td {
   padding-left: 15px;
 }
 
+div.page-header{
+    border-bottom: 1px solid #E8E8E8;
+    padding-bottom: 30px;
+}
+
+div.page-header-left{
+    float: left;
+    width: 670px;
+}
+
+/*bread-crumb*/
+
+ul.bread-crumb{
+    float: left;
+    padding: 17px 0px 0px;
+    margin: 0px;
+    list-style: outside none none;
+}
+
+ul.bread-crumb li:first-child{
+    margin-left: 0px;
+}
+
+ul.bread-crumb li{
+    color: #909090;
+    text-decoration: underline;
+}
+
+ul.bread-crumb li.separator{
+    widows: 8px;
+    padding: 0px 4px;
+    text-decoration: none;
+}
+
+li.icon-small-arrow.right-gray{
+    background-image: url("~/Images/icon_arrow_right_gray.png");
+}
+
 @media(max-width: 480px){
     .contact, .map-wrapper{
         width: 90%;
@@ -828,7 +866,7 @@ tr.pager td {
     }
 }
 
-/*聯絡頁面表單設定*/
+/*email form setting*/
 /*.email-content{
     width: 90%;
 }*/
