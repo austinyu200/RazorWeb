@@ -1,4 +1,34 @@
-﻿html {
+﻿/*bread-crumb*/
+
+.bread-crumb{
+    float: left;
+    padding: 17px 0px 0px;
+    margin: 0px;
+    list-style: outside none none;
+}
+
+.bread-crumb li:first-child{
+    margin-left: 0px;
+}
+
+.bread-crumb li{
+    color: #909090;
+    text-decoration: underline;
+}
+
+.bread-crumb li.separator{
+    widows: 8px;
+    padding: 0px 4px;
+    text-decoration: none;
+}
+
+.icon-small-arrow.right-gray{
+    background-image: url("~/Images/icon_arrow.png");
+}
+
+
+
+html {
     background-color: #e2e2e2;
     margin: 0;
     padding: 0;
@@ -824,33 +854,7 @@ div.page-header-left{
     width: 670px;
 }
 
-/*bread-crumb*/
 
-ul.bread-crumb{
-    float: left;
-    padding: 17px 0px 0px;
-    margin: 0px;
-    list-style: outside none none;
-}
-
-ul.bread-crumb li:first-child{
-    margin-left: 0px;
-}
-
-ul.bread-crumb li{
-    color: #909090;
-    text-decoration: underline;
-}
-
-ul.bread-crumb li.separator{
-    widows: 8px;
-    padding: 0px 4px;
-    text-decoration: none;
-}
-
-li.icon-small-arrow.right-gray{
-    background-image: url("~/Images/icon_arrow_right_gray.png");
-}
 
 @media(max-width: 480px){
     .contact, .map-wrapper{
