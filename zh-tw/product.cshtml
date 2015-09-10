@@ -5,13 +5,15 @@
 
 @{
     Database db = Database.Open("RazorWeb");
-    var selectedData = db.Query("select * from products");
+    var selectedData = db.Query("select * from products where ID = 1");
     var grid= new WebGrid(source: selectedData);
     var dataArray = selectedData.ToArray();
+    string name = null;
     string content = null;
     string  path = null;    
     foreach(var raw in selectedData)
     {
+        name = raw.Name;
         content = raw.Content;
         path = raw.Image1;
     }
@@ -32,16 +34,19 @@
         <div class="content-wrapper clear-fix" >
             <div class="page-header clear-fix">
                 <div class="page-header-left">
-                    <h1>無鉛製程迴焊爐SMD系列</h1>
+                    <h1>@name</h1>
                     @*這個區塊無法套用CSS*@
                     <ul class="bread-crumb">
                         <li>
-                            <a titel="Home" href="~/zh-tw/Default.cshtml">Home</a>
+                            <a titel="products" href="~/zh-tw/products.cshtml">產品簡介</a>/  @name                            
                         </li>
-                        <li class="separator icon-small-arrow right-gray"></li>
-                        <li>無鉛製程迴焊爐SMD系列</li>
+                        <!--<li class="separator icon-small-arrow right-gray"></li>
+                        <li>@name</li>-->
                     </ul>
                 </div>
+            </div>
+            <div class="clear-fix">
+                @content
             </div>
         </div>
     </body>
