@@ -9,14 +9,18 @@
     var grid= new WebGrid(source: selectedData);
     var dataArray = selectedData.ToArray();
     string name = null;
-    string content = null;
+    string rawText = null;
     string  path = null;    
+    string[] content = null;
     foreach(var raw in selectedData)
     {
         name = raw.Name;
-        content = raw.Content;
+        rawText = raw.Content;
         path = raw.Image1;
     }
+    
+    content = rawText.Split('。');
+
 }
 
 <html lang="zh-tw">
@@ -45,8 +49,21 @@
                     </ul>
                 </div>
             </div>
-            <div class="clear-fix">
-                @content
+            <div class="clear-fix" style="padding-top: 20px;">
+                <div class="content-left">
+                    <img src="@path" width="100%">
+                </div>
+                <div class="content-right">
+                    <table cellpadding="0" border="20" cellspasing="0" style="width: 100%">
+                        <tbody>
+                            @for(int i = 0; i < content.Length; i++)
+                            {
+                                string a = content[i] +　"\n";
+                                <tr style="font-size: 16px;"><td class="product-td">@a</td></tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </body>

@@ -26,6 +26,23 @@
     background-image: url("~/Images/icon_arrow.png");
 }
 
+.content-left{
+    float: left;
+    width: 45%;
+}
+
+.content-right{
+    float: right;
+    width: 45%;
+    margin-top: -10px;
+}
+
+
+.product-td{
+    padding: 0.5em 2em 0.5em 1em;
+}
+
+/*自訂結尾*/
 
 
 html {
