@@ -1,27 +1,29 @@
 ﻿@{
     Layout = "~/zh-tw/_SiteLayout.cshtml";
     Page.Title = "產品簡介";    
-}
-
-@{
-    Database db = Database.Open("RazorWeb");
-    var selectedData = db.Query("select * from products where ID = 1");
-    var grid= new WebGrid(source: selectedData);
-    var dataArray = selectedData.ToArray();
+    string metaKeyword = null;
     string name = null;
     string rawText = null;
     string  path = null;    
     string[] content = null;
-    foreach(var raw in selectedData)
-    {
-        name = raw.Name;
-        rawText = raw.Content;
-        path = raw.Image1;
-    }
-    
-    content = rawText.Split('。');
-
 }
+
+@{
+    if(Request.QueryString["ID"] != null)
+    {
+        Database db = Database.Open("RazorWeb");
+        var selectedData = db.Query("select * from products where ID = " + Request.QueryString["ID"]);
+        var dataArray = selectedData.ToArray();
+        foreach(var raw in selectedData)
+        {
+            name = raw.Name;
+            rawText = raw.Content;
+            path = raw.Image1;
+        }        
+        content = rawText.Split('。');
+    }
+}
+
 
 <html lang="zh-tw">
     <head>
