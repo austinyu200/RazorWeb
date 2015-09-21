@@ -1,6 +1,5 @@
 ﻿@{
-    Layout = "~/zh-tw/_SiteLayout.cshtml";
-    Page.Title = "產品簡介";    
+    Layout = "~/zh-tw/_SiteLayout.cshtml"; 
     string metaKeyword = null;
     string name = null;
     string rawText = null;
@@ -21,6 +20,7 @@
             path = raw.Image1;
         }        
         content = rawText.Split('。');
+        Page.Title = name;
     }
 }
 
@@ -28,7 +28,6 @@
 <html lang="zh-tw">
     <head>
         <meta charset="utf-8" />
-        <title></title>
     </head>
     <body>
         <!--測試
@@ -51,7 +50,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="clear-fix" style="padding-top: 20px;">
+            <div class="clear-fix" style="padding-top: 20px; padding-right: 10px;">
                 <div class="content-left">
                     <img src="@path" width="100%">
                 </div>

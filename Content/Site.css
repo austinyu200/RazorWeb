@@ -42,6 +42,11 @@
     padding: 0.5em 2em 0.5em 1em;
 }
 
+.content-bottom td{
+    border-collapse: collapse;
+    border: 1pt solid black;
+}
+
 /*自訂結尾*/
 
 
@@ -161,7 +166,7 @@ h5, h6 {
     }    
     
 #body {
-    background-color: #efeeef;
+    background-color: #F8F8F8;
     clear: both;
     padding-bottom: 35px;
     /*padding-top: 5px;*/
