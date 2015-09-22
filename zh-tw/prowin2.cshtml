@@ -1,0 +1,43 @@
+﻿@{
+	string name = "ProWin2";
+	string path1 = "/Images/products/prowin1.png";
+	string path2 = "";
+	
+	Layout  = "~/zh-tw/_SiteLayout.cshtml";
+	Page.Title = name;
+}
+
+<html lang="zh-tw">
+	<head>
+		<meta charset="utf-8">.
+		<!--關鍵字-->
+	</head>
+	<body>
+		<div class="content-wrapper clear-fix">
+			<div class="page-header clear-fix">
+				<div class="page-header-left">
+					<h1>@name</h1>
+					<ul class="bread-crumb">
+						<li>
+							<a href="~/zh-tw/products.cshtml">產品簡介</a>/ @name
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="clear-fix" style="padding-top: 20px; padding-right: 10px;">
+				<div class="content-left">
+					<img src="@path1" width="100%">
+					<p></p>
+					<img src="@path2" width="100%">
+				</div>
+				<div class="content-right" style="font-size: 16px;">
+					<p>透過ProWin2軟體，將電腦和THERMOTRACKER&reg;測溫器聯結通訊;提供中，英文作業環境模式切換。以下為ProWin2功能介紹:</p>
+<p>測溫器服務:<br />&nbsp;1.監看測溫器內部溫度和電池電壓(每4秒更新一次數據)。<br />&nbsp;2.可將測溫器測得溫度資料及下載到PC上供分析之用。<br />&nbsp;3.設定測溫器的資料取樣速率。</p>
+<p>&nbsp;資料分析:<br />&nbsp;測溫點資料:輸入測溫點位置，名稱，工件尺寸和方向，還可載入產品圖片。<br />&nbsp;製程資料:輸入輸送網或軌道速度，公司名稱，產品名稱及備註。<br />&nbsp;熱區資料:輸入起始時間和各區溫度及間距設定。<br />&nbsp;最高溫度及時間分析:顯示每一條溫度曲線的最高溫度，時間，以及高於臨界溫度的時間。<br />&nbsp;升溫率分析:針對每條溫度曲線做溫度，時間區間及溫昇率的分析。<br />&nbsp;溫度值列表:選擇時間將每條溫度曲線的實際溫度值以列表的方式顯示出來。<br />&nbsp;測溫報告:完整的報告列印。</p>
+<p>即時量測:<br />&nbsp;測量產品在通過爐內的即時受熱狀態。</p>
+<p>&nbsp;</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
