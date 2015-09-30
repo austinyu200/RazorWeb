@@ -48,6 +48,23 @@
     border: 1pt solid black;
 }
 
+
+.index-content-left{
+    float: left;
+    width: 70%;
+}
+
+.index-content-right{
+    float: right;
+    width: 20%;
+    margin-top: 15px;
+    line-height: 2em;    
+    padding-right: 30px;
+}
+
+.index-content-right img{
+    width: 100%;
+}
 /*自訂結尾*/
 
 
@@ -264,7 +281,7 @@ footer {
 
 .menu a {
     background: none;
-    color: #999;
+    color: #787878;
     text-decoration: none;
     padding: 1.2rem 1.5rem;
     display: block
@@ -376,6 +393,10 @@ ol.round {
 
         ol.round li.nine {
             background: url("../Images/orderedList9.png") no-repeat;
+        }
+        
+        ol.round li.dot {
+           background: url("../Images/listdot.png") no-repeat; 
         }
 
 /* content */
@@ -904,6 +925,19 @@ div.page-header-left{
     }
     
     .content-right{
+        width: 100%;
+    }
+    
+    .index-content-left{
+        width: 100%;
+    }
+    
+    .index-content-right{
+        width: 100%;
+        padding-right: 0px;
+    }
+    
+    .index-content-right img{
         width: 100%;
     }
 }
