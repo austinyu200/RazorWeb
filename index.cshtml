@@ -10,6 +10,35 @@
         <title></title>
     </head>
     <body>
+        <script type="text/javascript">
+            var type=navigator.appName
+            if (type=="Netscape")
+            {
+                var lang = navigator.language
+            }
+            else
+            {
+                var lang = navigator.userLanguage
+            }
+            //取得瀏覽器語言的前兩個字母
+            var lang = lang.substr(0,2)
+            // 英語
+            if (lang == "en")
+            {
+                window.location.href="/en/Default.cshtml"
+            }
+            // 中文 - 不分繁體和簡體
+            else if (lang == "ja")
+            {
+                window.location.href="/ja/Default.cshtml"
+            }
+            // 除上面所列的語言
+            else
+            {
+                window.location.href="/zh-tw/Default.cshtml"
+            }
+        </script>
+
         <a href="~/zh-tw/Default.cshtml">中文</a>
         <a href="~/ja/Default.cshtml">日本語で</a>
         <a href="~/en/Default.cshtml">English</a>
