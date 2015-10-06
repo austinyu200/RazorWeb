@@ -1,8 +1,51 @@
 ﻿@{
 	string name = "其他測溫相關";
-	string path1 = "/Images/products/prowin1.png";
-	string path2 = "";
-	
+	string path1 = "/Images/products/溫控器1.jpg";
+	string path2 = "/Images/products/溫控器2.jpg";
+    string path3 = "/Images/products/測溫線材.jpg";
+	string path4 = "/Images/products/隔熱盒1.png";
+    string path5 = "/Images/products/隔熱盒2.jpg";    
+    
 	Layout  = "~/zh-tw/_SiteLayout.cshtml";
 	Page.Title = name;
 }
+
+<html lang="zh-tw">
+    <head>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <div class="content-wrapper clear-fix" >
+            <div class="page-header clear-fix">
+                <div class="page-header-left">
+                    <h1>@name</h1>
+                    <ul class="bread-crumb">
+                        <li>
+                            <a titel="products" href="~/zh-tw/products.cshtml">產品簡介</a>/  @name                            
+                        </li>
+                        <!--<li class="separator icon-small-arrow right-gray"></li>
+                        <li>@name</li>-->
+                    </ul>
+                </div>
+            </div>
+            <div class="clear-fix" style="padding-top: 20px; padding-right: 10px;">
+                <div class="content-left">
+                    <h3>溫控器</h3>
+                    <p></p>
+                    <img src="@path1" width="100%" title="溫控器">
+                    <p></p>
+                    <img src="@path2" width="100%" title="溫控器">
+                    <h3>測溫線材</h3>
+                    <p></p>
+                    <img src="@path3" width="100%">
+                    <p></p>
+                    <h3>隔熱盒</h3>
+                    <p></p>
+                    <img src="@path4" width="100%">
+                    <p></p>
+                    <img src="@path5" width="100%">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

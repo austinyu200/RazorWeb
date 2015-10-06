@@ -3,7 +3,7 @@
     Page.Title = "產品介紹";
 }
 
-@{
+@*@{
     Database db = Database.Open("RazorWeb");
     var selectedData = db.Query("select * from products");
     var grid= new WebGrid(source: selectedData);
@@ -15,7 +15,7 @@
         content = raw.Content;
         path = raw.Image1;
     }
-}
+}*@
 
 <!DOCTYPE html>
 
@@ -25,12 +25,6 @@
         <title></title>
     </head>
     <body>
-        <!--測試
-        @DateTime.Now;
-        <p>@content</p>
-        <p>@path</p>
-        <img src=@path>
-        <img src="~/Images/logo.png">-->
         <div class="product-page">
             <div class="page-Header">
                 <h1 class="title">產品分類</h1>
@@ -116,7 +110,7 @@
                     <tbody>
                         <tr>
                             <td style="text-align: center;" colspan="2" align="center" bgcolor="#182988">
-                                <span style="color: #ffffff;">爐溫測試儀</span>
+                                <span style="color: #ffffff;">爐溫測試儀相關</span>
                             </td>
                         </tr>
                         <tr>

@@ -2,14 +2,28 @@
     Layout = "~/zh-tw/_SiteLayout.cshtml";
     Page.Title = "關於台技";
 }
+  <script>
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+  </script>
 <p></p>
 <hgroup class="title">
-    <h1>@Page.Title.</h1>
-    <h2>技術回顧</h2>
+    <h1>@Page.Title</h1>
 </hgroup>
 
 <article style="width: 100%">
-    <table style="width: 100%" border="20" cellspasing="0" cellpadding="0">
+   <div id="tabs" style="border: 0px; background: #F8F8F8;">
+       <ul style="border: 0px; background: #F8F8F8;">
+           <li><a href="#tabs-1">關於台技</a></li>
+           <li><a href="#tabs-2">技術回顧</a></li>
+       </ul>
+       <div id="tabs-1" style="line-height: 1.9em;">
+           <p >台技工業設備股份有限公司成立於1988年12月16日，秉持著"品質、服務、誠信、創新、環保"為永續經營之理念，隨著近年來電子產業技術層次迅速的提昇，台技本著不斷自我要求以超越自我；研發創新以力求設備之高品質及專業技術服務之觀念，服務廣大的客戶群。
+                 近二十年來，台技主力產品已行銷至世界十國以上，開拓行銷海外之市場；對產品設備不斷研發創新，所累積之豐富經驗及技術，已建立良好口碑，更受台灣及海外客戶所肯定。</p>
+                 <p>未來，台技將持續致力於產品研發、創新、人才培育，以不斷創新研發的精神，對未來做最好的準備。結合各方學、產、研界之力量，貢獻台技之專長，共同提升熱能應用技術，達世界水準。</p>       </div>
+       <div id="tabs-2">
+            <table style="width: 100%" border="20" cellspasing="0" cellpadding="0">
         <tr>   
             <td>
                 <p>1988</p>
@@ -193,6 +207,8 @@
             </td>
         </tr>
     </table>
+       </div>
+   </div>
 </article>
 
 <!--<aside>
