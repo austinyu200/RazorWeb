@@ -207,7 +207,7 @@ header .content-wrapper {
 footer {
     clear: both;
     background-color: #e2e2e2;
-    font-size: .8em;
+    font-size: 1em;
     height: 100px;
 }
 
@@ -853,9 +853,11 @@ tr.pager td {
         padding: 10px 0;
     }
 
-        footer p {
-            margin: 0;
-        }
+    footer p {
+        margin: 0;
+    }
+    
+    
 }
 
 
