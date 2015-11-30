@@ -889,8 +889,7 @@ tr.pager td {
 }
 
 .map-wrapper {
-  width: 95%;
-  padding-left: 15px;
+  width: 100%;
 }
 
 div.page-header{
@@ -906,16 +905,26 @@ div.page-header-left{
 
 
 @media(max-width: 480px){
-    .contact, .map-wrapper{
-        width: 90%;
+    .contact{
+        width: 100%;
         padding-left: 15px;
+    }
+    
+     .map-wrapper{
+        width: 100%;
+        margin-right: -20px
     }
 }
 
 @media(min-width: 480px) and (max-width:768px){
-    .contact, .map-wrapper{
-        width: 90%;
+    .contact{
+        width: 100%;
         padding-left: 20px;
+    }
+    
+     .map-wrapper{
+        width: 100%;
+        margin-right: -20px
     }
 }
 
