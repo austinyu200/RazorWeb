@@ -13,6 +13,19 @@
 		<!--關鍵字-->
 	</head>
 	<body>
+        <div class="side-bar">
+            <ul>
+                <li><a href="products.cshtml">← 回列表</a></li>
+                @{
+                    Database connect = Database.Open("RazorWeb");
+                    var data = connect.Query("select * from products").ToArray();
+                    foreach(var i in data)
+                    {
+                        <li><a href="product.cshtml?ID=@i.ID">@i.Name</a></li>
+                    }
+                }            
+            </ul>
+        </div>
 		<div class="content-wrapper clear-fix">
 			<div class="page-header clear-fix">
 				<div class="page-header-left">
