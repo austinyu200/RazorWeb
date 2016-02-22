@@ -4,6 +4,7 @@
     string name = null;
     string rawText = null;
     string path = null;    
+    string[] images = null; 
     string[] content = null;
 }
 
@@ -20,6 +21,7 @@
             path = raw.Image1;
         }        
         content = rawText.Split('。');
+        images = path.Split('。');
         Page.Title = name;
     }
 }
@@ -64,9 +66,15 @@
                 </div>
             </div>
             <div class="clear-fix" style="padding-top: 20px; padding-right: 10px;">
+                <!--圖片區塊-->
                 <div class="content-left">
-                    <img src="@path" width="100%">
+                    @for(int i =0; i< images.Length;i++)
+                    {
+                        var img = images[i];
+                        <img src="@img" width="100%">
+                    }
                 </div>
+                <!--文字表格區塊-->
                 <div class="content-right">
                     <table cellpadding="0" border="20" cellspasing="0" style="width: 100%">
                         <tbody>
