@@ -1,9 +1,8 @@
 ﻿@{
     Layout = "~/zh-tw/_SiteLayout.cshtml";
     Page.Title = "Home Page";
-    string path1 = "/Images/banner3.jpg";
-	string path2 = "/Images/banner2.jpg";
-	string path3 = "/Images/banner.jpg";
+    string path1 = "/Images/banner_slick1.jpg";
+	string path2 = "/Images/banner_slick2.jpg";
     string path4 = "/Images/bottom_slick1.jpg";
     string path5 = "/Images/bottom_slick2.jpg";
 }
@@ -20,6 +19,7 @@
             autoplay: true,
             speed: 3000,
             fade: true,
+            pauseOnHover: true,
             //cssEase: 'linear'
         });
     })
@@ -44,9 +44,6 @@
             <div>
                 <img src="@path2" width="100%" height="100%">
             </div>
-            <div>
-                <img src="@path3" width="100%" height="100%">
-            </div>
         </div>
     </div>
 </section>
@@ -63,14 +60,9 @@
                  近二十年來，台技主力產品已行銷至世界十國以上，開拓行銷海外之市場；對產品設備不斷研發創新，所累積之豐富經驗及技術，已建立良好口碑，更受台灣及海外客戶所肯定。</p>
                  <a href="~/zh-tw/About.cshtml">Read more…</a>   
             </div>
-            <div class="index-content-right">        
-                <div class="index-slick">
-                    <div>
-                        <img src="@path4" width="100%" height="100%">
-                    </div>
-                    <div>
-                        <img src="@path5" width="100%" height="100%">
-                    </div>
+            <div class="index-content-right">     
+                <div>
+                    <img src="@path5" width="100%" height="100%">
                 </div>
             </div>
         </div>

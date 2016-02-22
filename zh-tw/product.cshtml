@@ -48,7 +48,10 @@
                     {
                         <li><a href="product.cshtml?ID=@i.ID">@i.Name</a></li>
                     }
-                }            
+                }    
+                <li><a href="thermotracker.cshtml">測溫器</a></li>
+                <li><a href="prowin2.cshtml">測溫器ProWin2軟體</a></li>
+                <li><a href="other.cshtml">其他測溫相關</a></li>        
             </ul>
         </div>
         <div class="content-wrapper clear-fix" >
@@ -72,6 +75,9 @@
                     {
                         var img = images[i];
                         <img src="@img" width="100%">
+                        <br>
+                        <br>
+                        <br>
                     }
                 </div>
                 <!--文字表格區塊-->

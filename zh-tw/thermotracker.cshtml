@@ -3,6 +3,9 @@
 	string name = "測溫器";
 	string path1 = "/Images/products/pro600_2.jpg";
 	string path2 = "/Images/products/pro1000_2.jpg";
+    
+    string[] pro600 ={"/Images/products/測溫器/PRO-600-6P.png","/Images/products/測溫器/PRO-600-6P-2.png","/Images/products/測溫器/PRO-600-8P.png"};
+    string[] pro1000 = {"/Images/products/測溫器/PRO-1000-2.png","/Images/products/測溫器/PRO-1000-4P.png","/Images/products/測溫器/PRO-1000-6P.png","/Images/products/測溫器/PRO-1000-6p-2.png"};
 	Page.Title = name;
 }
 
@@ -11,7 +14,25 @@
 	<head>
 		<meta charset="utf-8">
 		<!--關鍵字-->
+           
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.css"/>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.index-slick').slick({
+            //dots: true,
+            //infinite: true,
+            arrows: false,
+            autoplay: true,
+            speed: 3000,
+            fade: true,
+            pauseOnHover: true,
+            //cssEase: 'linear'
+        });
+    })
+</script>
 	</head>
+ 
 	<body>
         <div class="side-bar">
             <ul>
@@ -23,7 +44,10 @@
                     {
                         <li><a href="product.cshtml?ID=@i.ID">@i.Name</a></li>
                     }
-                }            
+                }  
+                <li><a href="thermotracker.cshtml">測溫器</a></li>
+                <li><a href="prowin2.cshtml">測溫器ProWin2軟體</a></li>
+                <li><a href="other.cshtml">其他測溫相關</a></li>                  
             </ul>
         </div>
         <div class="content-wrapper clear-fix" >
@@ -41,16 +65,18 @@
             </div>
             <div class="clear-fix" style="padding-top: 20px; padding-right: 10px;">
                 <div class="content-left">
-                    <img src="@path1" height="80%">
-                    <p></p>
-                    <img src="@path2" width="100%">
+                    <img src="@pro600[0]" height="80%" title="Pro600">
+                    <h5 style="text-align: center; width: 80%;">Pro 600</h5>
+                    <br>
+                    <img src="@pro1000[2]" width="80%">
+                    <h5 style="text-align: center; width: 80%;">Pro 1000</h5>
                 </div>
                 <div class="content-right" style="font-size: 16px;">
                     <p>THERMOTRACKER&reg;測溫系統是一套高精確度的溫度量測系統，可以用來精確的測量並分析工作物上的實際溫度曲線，供製程分析及品質管制之用，適用於SMD組裝製造業、電子、電腦製造廠、PC板製造業、烤漆業、食品業、藥品業...等。<br />本系統是由測溫器,絕熱外盒和控制軟體所組成，視不同之用途，搭配不同之隔熱外盒，與工作物一同進入爐內量測溫度曲線。<br />僅以SMD迴銲爐適用之標準配備介紹如下:<br /><h4>測溫器主機:</h4><p>負責溫度的量測，並將結果記錄在內含的記憶體內，同時具有RS-232介面，可將記憶體內的資料傳送出去。<br />由於採用了最新的電子技術，因此具有極佳的溫度穩定性,精確度,和極低的耗電量，並且還有過溫保護功能可延長使用壽命。</p><h4>絕熱外盒:</h4><p>提供測溫器絕熱保護，保護其不受量測時高溫的影響。</p><h4>控制軟體<a href="prowin2.cshtml">ProWin2</a></h4><p>THERMOTRACKER&reg;測溫器操作簡單，配合控制軟體ProWin2分析量測溫度曲線；可隨操作者切換中、英文作業環境，方便操作者使用。ProWin2軟體可設定測溫器的運作參數並讀入其所儲存的資料加以分析(最高熔錫溫度、熔錫時間、升溫率&hellip;等)，列印和儲存。</p>
                 </div>
                 
             </div>
-            <div class="content-bottom" style="padding-right: 10px;">
+            <div class="content-bottom" style="padding-right: 10px; padding-top: 20px;">
                     <table width="100%" border="5">
                         <tbody>
                             <tr>
@@ -212,6 +238,17 @@
                         </tbody>
                     </table>
                     <p>Note:規格調整，將不再另行通知。</p>
+                    
+                    <div class="index-slick" style="">
+                       <div>
+                           <img src="@pro600[0]" width="45%" height="45%">
+                           
+                       </div>
+                       <div>
+                           <img src="@pro600[1]" width="45%" height="45%">
+                           
+                       </div>
+                    </div>
                 </div>
         </div>
     </body>
