@@ -970,6 +970,10 @@ div.page-header-left{
         width: 100%;
     }
     
+    .content-left img{
+        margin: auto;
+    }
+    
     .content-right{
         width: 100%;
     }
@@ -985,6 +989,11 @@ div.page-header-left{
     
     .index-content-right img{
         width: 100%;
+    }
+    
+    .side-bar{
+        height: 0px;
+        width: 0px;
     }
 }
 
