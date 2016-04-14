@@ -3,25 +3,28 @@
 }
 
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
     <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta charset="utf-8" />
-        <title>@Page.Title - 台技工業設備</title>
+        <title>@Page.Title - Tangteck Equipment Inc.</title>
         <link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
-        <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />        
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <script src="~/Scripts/jquery-1.8.2.min.js"></script>
         <script src="~/Scripts/jquery-ui-1.8.24.js"></script>
         <script src="~/Scripts/modernizr-2.6.2.js"></script>
+        
         <meta name="viewport" content="width=device-width" />
+
     </head>
+    
     <body>
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
                     <p class="site-title">
-                        <a href="~/zh-tw/"><img class="logo" src="~/Images/logo2.png"></img></a>
+                        <a href="~/zh-tw/"><img class="logo" src="~/Images/mark2.png"></img></a>
                     </p>
                 </div>
                 <div class="float-right">
@@ -43,26 +46,32 @@
                     </section>-->
                     <nav class="menu">
                         <ul>
-                            <li><a href="~/zh-tw/Default">首頁</a></li>                            
-                            <li><a href="~/zh-tw/products">產品簡介</a></li>
-                            <li><a href="~/zh-tw/about">關於台技</a></li>
-                            <li><a href="~/zh-tw/Contact">連絡我們</a></li>
+                            <li><a href="~/en/Default">Home</a></li>                            
+                            <li><a href="~/en/products">Products</a></li>
+                            <li><a href="~/en/about">About</a></li>
+                            <li><a href="~/en/Contact">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
         </header>
-        <div id="body">
+        <div id="body">            
             @RenderSection("featured", required: false)
             <section class="content-wrapper main-content clear-fix">
                 @RenderBody()
             </section>
         </div>
-        <footer>
+        <footer class="footer">
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - 台技工業設備股份有限公司</p>
-                    <p>台灣桃園縣大園鄉水源路913號</p>
+                    <p>Copyright &copy; @DateTime.Now.Year -  Tangteck Equipment Inc. All rights reserved.</p>
+                    <p>No. 913, Shueiyuan Rd. Dayuan Township, Taoyuan County, Taiwan</p>
+                    <p>Phone: 886-3-386-7575 </p>
+                    <p>Fax: 886-3-386-6955 </p>
+                    <p>
+                        <span class="label">E-Mail:</span>
+                        <span><a href="mailto:service@tangteck.com?subject=Customer query&amp;body=Company:       Phone:       Fax:       Contact:      ">service@tangteck.com</a></span>
+			        </p>
                 </div>
                 <div class="float-right">
                     <Br /><Br />

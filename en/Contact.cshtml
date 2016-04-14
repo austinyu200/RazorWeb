@@ -1,0 +1,73 @@
+﻿@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}
+
+@{
+	Layout = "~/en/_SiteLayout.cshtml";
+	Page.Title = "Contact";	
+	Validation.RequireField("company","This field can't be void");
+    Validation.RequireField("email","This field can't be void");
+    Validation.RequireField("phone","This field can't be void");
+    Validation.RequireField("discript","This field can't be void");
+}
+
+
+
+<div id="body">
+	<div class="container">
+		<div class="header">
+			<h1>Contact Us</h1>
+		</div>
+		<div class="content-left">
+			<div class="contact">
+				<br>			
+				<form class="email-content" id="mailForm" name="mailForm" method="post" onsubmit="return check()" action="send.cshtml">
+					Unit or Company<br>
+					<input type="text" id="company" name="company" @Validation.For("company")>
+					@Html.ValidationMessage("company")<br>
+					E-mail<br>
+					<input type="text" id="email" name="email" @Validation.For("email")>
+					@Html.ValidationMessage("email")<br>
+					Phone<br>
+					<input type="number" id="phone" name="phone" @Validation.For("phone")>
+					@Html.ValidationMessage("phone")<br>
+					Content<br>
+					<textarea cols="40" rows="8" id="discript" name="discript" @Validation.For("discript")></textarea>
+					@Html.ValidationMessage("discript")<br>
+					<input type="submit" value="Submit" class="submit">
+				</form>
+				<h3></h3>
+				<p>
+					<span class="label">Phone:</span>
+					<span class="label">886-3-386-7575</span>
+				</p>
+				<p>
+					<span class="label">Department of Business:</span>
+					<span>333或332</span>
+				<p>
+					<span class="label">Fax:</span>
+					<span>886-3-386-6955</span>
+				</p>
+				<p>
+					<span class="label">E-Mail:</span>
+					<span><a href="mailto:service@tangteck.com?subject=客戶網頁回函&amp;body=公司:       電話:       傳真:       聯絡人:      ">service@tangteck.com</a></span>
+				</p>
+				<header>
+					<h3>Address:</h3>
+				</header>
+				<p>
+					No. 913, Shueiyuan Rd. Dayuan Township<br />
+					Taoyuan County, Taiwan<br>
+				</p>
+			</div>
+		</div>
+		<!--地圖-->
+		<div class="content-right" style="margin-top: 0px;">
+			<div class="map-wrapper">
+				<br>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1519.87674513723!2d121.21021385395508!3d25.037587000335886!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0xdffe1fc71e80bb76!2z5Y-w5oqA5bel5qWt6Kit5YKZ6IKh5Lu95pyJ6ZmQ5YWs5Y-4!5e0!3m2!1szh-TW!2stw!4v1448878198987" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+				</div>
+		</div>
+	</div>
+</div>	

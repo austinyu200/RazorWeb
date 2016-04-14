@@ -1,0 +1,48 @@
+﻿@{
+    Layout = "~/en/_SiteLayout.cshtml";
+    Page.Title = "Contact";    
+}
+@{
+	if(IsPost)
+	{
+		string company = Request.Form["company"];
+        string email = Request.Form["email"];
+        string phone = Request.Form["phone"];
+        string discript = Request.Form["discript"].ToString();
+        <text>
+            @company<br>
+            @email<br>
+            @phone<br>
+            @discript<br>
+        </text>
+
+        try
+        {
+            WebMail.SmtpServer = "smtp.live.com";   //寄件smtp server
+            WebMail.SmtpPort = 587;                          //smtp port
+            WebMail.EnableSsl = true;                       //啟用SSL
+            WebMail.UserName = "austinyu200@livemail.tw";                          //寄件郵件帳戶 
+            WebMail.Password = "M3TBT7NB";
+            WebMail.From = WebMail.UserName;                //同寄件郵件帳戶
+            
+            WebMail.Send(to: "austinyu200@yahoo.com.tw",    //收件者
+                         subject:company + "來信",          //標題
+                         body: discript);                   //內容
+        }
+        catch(Exception e)
+        {
+            <text>@e</text>
+        }
+	}
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title></title>
+    </head>
+    <body>
+		<h1>Your e-mail has been successfully sent, thank you for your visit.</h1>
+    </body>
+</html>

@@ -3,11 +3,11 @@
 	string path1 = "/Images/products/prowin1.png";
 	string path2 = "";
 	
-	Layout  = "~/zh-tw/_SiteLayout.cshtml";
+	Layout  = "~/en/_SiteLayout.cshtml";
 	Page.Title = name;
 }
 
-<html lang="zh-tw">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<!--關鍵字-->
@@ -15,7 +15,7 @@
 	<body>
         <div class="side-bar">
             <ul>
-                <li><a href="products.cshtml">← 回列表</a></li>
+                <li><a href="products.cshtml">← Back to Menu</a></li>
                 @{
                     Database connect = Database.Open("RazorWeb");
                     var data = connect.Query("select * from products").ToArray();
@@ -24,9 +24,9 @@
                         <li><a href="product.cshtml?ID=@i.ID">@i.Name</a></li>
                     }
                 }    
-                <li><a href="thermotracker.cshtml">測溫器</a></li>
-                <li><a href="prowin2.cshtml">測溫器ProWin2軟體</a></li>
-                <li><a href="other.cshtml">其他測溫相關</a></li>        
+                <li><a href="thermotracker.cshtml">THERMOTRACKER®</a></li>
+                <li><a href="prowin2.cshtml"> 	THERMOTRAKER control software </a></li>
+                <li><a href="other.cshtml">Others</a></li>        
             </ul>
         </div>
 		<div class="content-wrapper clear-fix">
@@ -35,7 +35,7 @@
 					<h1>@name</h1>
 					<ul class="bread-crumb">
 						<li>
-							<a href="~/zh-tw/products.cshtml">產品簡介</a>/ @name
+							<a href="~/en/products.cshtml">Products</a>/ @name
 						</li>
 					</ul>
 				</div>

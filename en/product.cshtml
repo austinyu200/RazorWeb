@@ -1,0 +1,100 @@
+﻿@{
+    Layout = "~/en/_SiteLayout.cshtml"; 
+    string metaKeyword = null;
+    string name = null;
+    string rawText = null;
+    string path = null;    
+    string[] images = null; 
+    string[] content = null;
+}
+
+@{
+    if(Request.QueryString["ID"] != null)
+    {
+        Database db = Database.Open("RazorWeb");
+        var selectedData = db.Query("select * from products where ID = " + Request.QueryString["ID"]);
+        var dataArray = selectedData.ToArray();
+        foreach(var raw in selectedData)
+        {
+            name = raw.Name;
+            rawText = raw.Content;
+            path = raw.Image1;
+        }        
+        content = rawText.Split('。');
+        images = path.Split('。');
+        Page.Title = name;
+    }
+}
+
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <!--測試
+        @DateTime.Now;
+        <p>@content</p>
+        <p>@path</p>
+        <img src=@path>
+        <img src="~/Images/logo.png">-->
+        <div class="side-bar">
+            <ul>
+                <li><a href="products.cshtml">← Back to Menu</a></li>
+                @{
+                    Database connect = Database.Open("RazorWeb");
+                    var data = connect.Query("select * from products").ToArray();
+                    foreach(var i in data)
+                    {
+                        <li><a href="product.cshtml?ID=@i.ID">@i.Name</a></li>
+                    }
+                }    
+                <li><a href="thermotracker.cshtml">THERMOTRACKER®</a></li>
+                <li><a href="prowin2.cshtml">THERMOTRAKER control software </a></li>
+                <li><a href="other.cshtml">Others</a></li>        
+            </ul>
+        </div>
+        <div class="content-wrapper clear-fix" >
+            <div class="page-header clear-fix">
+                <div class="page-header-left">
+                    <h1>@name</h1>
+                    @*這個區塊無法套用CSS*@
+                    <ul class="bread-crumb">
+                        <li>
+                            <a titel="products" href="~/en/products.cshtml">Products</a>/  @name                            
+                        </li>
+                        <!--<li class="separator icon-small-arrow right-gray"></li>
+                        <li>@name</li>-->
+                    </ul>
+                </div>
+            </div>
+            <div class="clear-fix" style="padding-top: 20px; padding-right: 10px;">
+                <!--圖片區塊-->
+                <div class="content-left">
+                    @for(int i =0; i< images.Length;i++)
+                    {
+                        var img = images[i];
+                        <img src="@img" width="100%">
+                        <br>
+                        <br>
+                        <br>
+                    }
+                </div>
+                <!--文字表格區塊-->
+                <div class="content-right">
+                    <table cellpadding="0" border="20" cellspasing="0" style="width: 100%">
+                        <tbody>
+                            @for(int i = 0; i < content.Length; i++)
+                            {
+                                string a = content[i] +　"\n";
+                                <tr style="font-size: 16px;"><td class="product-td">@a</td></tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+       
+    </body>
+</html>

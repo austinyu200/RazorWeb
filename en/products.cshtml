@@ -1,0 +1,138 @@
+﻿@{
+    Layout = "~/en/_SiteLayout.cshtml";
+    Page.Title = "Products";
+}
+
+@*@{
+    Database db = Database.Open("RazorWeb");
+    var selectedData = db.Query("select * from products");
+    var grid= new WebGrid(source: selectedData);
+    var dataArray = selectedData.ToArray();
+    string content = null;
+    string  path = null;    
+    foreach(var raw in selectedData)
+    {
+        content = raw.Content;
+        path = raw.Image1;
+    }
+}*@
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
+        <div class="product-page">
+            <div class="page-Header">
+                <h1 class="title">Category</h1>
+            </div>
+            <div class="product-class-table">
+                <table width="100%" border="20" cellspazing="0" cellpadding="0" style="line-height: 1.9em;">
+                    <tbody>
+                        <tr>
+                            <td style="text-align: center;" colspan="2" align="center" bgcolor="#182988">
+                                <span style="color: #ffffff;">Furnace </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml?ID=1">SMT Lead-Free REFLOW Furnace</a>
+                            </td>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml?ID=2">SMT Lead-Free N2 REFLOW Furnace</a>
+                            </td>    
+                        </tr>
+                        <tr>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml?ID=3">BGA/CSP Process REFLOW Furnace</a>
+                            </td>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml?ID=4">Laboratory QA Testing REFLOW Furnace</a>
+                            </td>    
+                        </tr>
+                        <tr>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml?ID=5">Thick Film Drying Furnace</a>
+                            </td>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml?ID=6">Touch-Screen Baking Furnace</a>
+                            </td>    
+                        </tr>
+                        <tr>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml?ID=7">FPCB/PCB Curing Furnace</a>
+                            </td>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml?ID=8">Continuously PTF Drying /Heating Furnace</a>
+                            </td>    
+                        </tr>
+                        <tr>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml?ID=9">Continuously High Temperature Firing Furnace  </a>
+                            </td>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml?ID=10">Continuously High Temperature N2 Firing Furnace/ Direct Bonding Copper Furnace</a>
+                            </td>    
+                        </tr>
+                        <tr>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml?ID=13">High Temperature Batch Type Oven </a>
+                            </td>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml?ID=12">Blood Glucose Test Strip Drying Furnace  </a>
+                            </td>    
+                        </tr>
+                        <tr>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml?ID=11">Solar Cell Firing Furnace </a>
+                            </td>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <!--<a href="CIGS.cshtml">硒化銅銦鎵薄膜太陽能電池硒化長晶爐設備</a>-->
+                                <a href="product.cshtml?ID=14">CIGS Selenization Furnace </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="product.cshtml?ID=15">Customized Furnace </a>
+                            </td>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p></p>
+                
+                @*以下產品也許獨立建立*@
+                <table width="100%" border="20" cellspazing="0" cellpadding="0" style="line-height: 1.9em;">
+                    <tbody>
+                        <tr>
+                            <td style="text-align: center;" colspan="2" align="center" bgcolor="#182988">
+                                <span style="color: #ffffff;">Temperature Measurement </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="thermotracker.cshtml">THERMOTRACKER®</a>
+                            </td>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="prowin2.cshtml">THERMOTRAKER control software </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="other.cshtml">Others</a>
+                            </td>
+                            <td bgcolor="#E0E0E0" width="50%">
+                                <a href="Contact.cshtml">Please contact us for high temperature process measurement.</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
