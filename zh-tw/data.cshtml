@@ -1,0 +1,31 @@
+@{
+    Layout = "~/zh-tw/_SiteLayout.cshtml"; 
+    string metaKeyword = null;
+    string name = null;
+    string rawText = null;
+    string path = null;    
+    string[] images = new string[15]; 
+    string[] content = null;
+}
+
+
+
+
+<div>
+    @{
+        Database connect = Database.Open("RazorWeb");
+        var data = connect.Query("select * from products").ToArray();
+        for(int i =0; i < data.Length;i++)
+        {
+             images[i] = data[i].Image1;
+            <li>ID = @data[i].ID</li>
+            <li>@images[i]</li>
+            string com = "update products_en set Image1 = @0 where ID = @1";
+            connect.Execute(com,images[i],i+1);
+        }
+    }
+</div>
+
+
+
+

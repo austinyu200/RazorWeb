@@ -20,7 +20,7 @@
                 <li><a href="products.cshtml">← Back to Menu</a></li>
                 @{
                     Database connect = Database.Open("RazorWeb");
-                    var data = connect.Query("select * from products").ToArray();
+                    var data = connect.Query("select * from products_en").ToArray();
                     foreach(var i in data)
                     {
                         <li><a href="product.cshtml?ID=@i.ID">@i.Name</a></li>
