@@ -3,7 +3,7 @@
     Page.Title = "Products";
 }
 
-@*@{
+@{
     Database db = Database.Open("RazorWeb");
     var selectedData = db.Query("select * from products");
     var grid= new WebGrid(source: selectedData);
@@ -15,7 +15,7 @@
         content = raw.Content;
         path = raw.Image1;
     }
-}*@
+}
 
 <!DOCTYPE html>
 
