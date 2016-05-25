@@ -723,6 +723,14 @@ tr.pager td {
     padding: 0 0.25em 0 0;
 }
 
+.product-class-table tr{
+    background-color: #E0E0E0;
+}
+
+.product-class-table tr:nth-child(2n+1){
+    background-color: #d0d4e0; 
+}
+
 
 /********************
 *   Mobile Styles   *
@@ -967,10 +975,12 @@ div.page-header-left{
 @media (max-width: 850px){
     .content-left{
         width: 100%;
+        text-align: center;
     }
     
-    .content-left img{
+    .content-left img{        
         margin: auto;
+        width: 60%;
     }
     
     .content-right{
@@ -1005,4 +1015,21 @@ div.page-header-left{
     .content-right{
         width: 100%;
     }
+}
+
+
+/*CSS表格測試*/
+#css_table{
+    display: table;
+}
+
+.css_tr{
+    display: table-row;
+    
+}
+
+.css_td{
+    padding: 10px;
+    display: table-cell;
+    
 }
