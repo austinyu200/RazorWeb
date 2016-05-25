@@ -1,11 +1,20 @@
 ﻿@{
-    var lang = "";
+    string en = new UriBuilder(Request.Url)
+                {
+                    Path = Request.Url.LocalPath.Replace("ja","en")
+
+                }.ToString();
+    string zh = new UriBuilder(Request.Url)
+    {
+        Path = Request.Url.LocalPath.Replace("ja","zh-tw")
+
+    }.ToString();
 }
 
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="ja">
     <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta charset="utf-8" />
         <title>@Page.Title - 台技工業設備</title>
         <link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
@@ -17,11 +26,10 @@
         <meta name="viewport" content="width=device-width" />
     </head>
     <body>
-        <header>
             <div class="content-wrapper">
                 <div class="float-left">
                     <p class="site-title">
-                        <a href="~/zh-tw/"><img class="logo" src="~/Images/logo2.png"></img></a>
+                        <a href="~/ja/"><img class="logo" src="~/Images/mark2.png"></img></a>
                     </p>
                 </div>
                 <div class="float-right">
@@ -43,7 +51,7 @@
                     </section>-->
                     <nav class="menu">
                         <ul>
-                            <li><a href="~/zh-tw/Default">首頁</a></li>                            
+                            <li><a href="~/zh-tw/Default">台技首頁</a></li>                            
                             <li><a href="~/zh-tw/products">產品簡介</a></li>
                             <li><a href="~/zh-tw/about">關於台技</a></li>
                             <li><a href="~/zh-tw/Contact">連絡我們</a></li>
@@ -51,7 +59,6 @@
                     </nav>
                 </div>
             </div>
-        </header>
         <div id="body">
             @RenderSection("featured", required: false)
             <section class="content-wrapper main-content clear-fix">
@@ -66,9 +73,9 @@
                 </div>
                 <div class="float-right">
                     <Br /><Br />
-                    <select>
-                        <option value="~/zh-tw/Default.cshtml">正體中文</option>
-                        <option value="~/en/Default.cshtml">English</option>
+                     <select onchange="javascript:location.href=this.value;">
+                        <option value="@zh">正體中文</option>
+                        <option value="@en">English</option>
                         <option selected="true" value="~/ja/Default.cshtml">日本語で</option>
                     </select>
                 </div>

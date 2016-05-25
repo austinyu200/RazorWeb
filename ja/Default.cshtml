@@ -2,38 +2,84 @@
     Layout = "~/ja/_siteLayout.cshtml";
 }
 
-<!DOCTYPE html>
+  <style>
+  .toggler { width: 500px; height: 200px; }
+  #button { padding: .5em 1em; text-decoration: none; }
+  #effect { width: 240px; height: 135px; padding: 0.4em; position: relative; }
+  #effect h3 { margin: 0; padding: 0.4em; text-align: center; }
+  </style>
+  <script>
+  $(function() {
+    // run the currently selected effect
+    function runEffect() {
+      // get effect type from
+      var selectedEffect = $( "#effectTypes" ).val();
+ 
+      // most effect types need no options passed by default
+      var options = {};
+      // some effects have required parameters
+      if ( selectedEffect === "scale" ) {
+        options = { percent: 100 };
+      } else if ( selectedEffect === "size" ) {
+        options = { to: { width: 280, height: 185 } };
+      }
+ 
+      // run the effect
+      $( "#sidebar" ).show( selectedEffect, options, 500, callback );
+    };
+ 
+    //callback function to bring a hidden box back
+    function callback() {
+      /*setTimeout(function() {
+        $( "#sidebar:visible" ).removeAttr( "style" ).fadeOut();
+      }, 1000 );*/
+    };
+ 
+    // set effect from select menu value
+    $( "#button" ).click(function() {
+      runEffect();
+    });
+    
+    $('body').click(function(){
+        $("#sidebar").visible();
+    });
+ 
+    $( "#sidebar" ).hide();
+  });
+  </script>
+ 
+<select name="effects" id="effectTypes">
+  <option value="blind">Blind</option>
+  <option value="bounce">Bounce</option>
+  <option value="clip">Clip</option>
+  <option value="drop">Drop</option>
+  <option value="explode">Explode</option>
+  <option value="fold">Fold</option>
+  <option value="highlight">Highlight</option>
+  <option value="puff">Puff</option>
+  <option value="pulsate">Pulsate</option>
+  <option value="scale">Scale</option>
+  <option value="shake">Shake</option>
+  <option value="size">Size</option>
+  <option value="slide">Slide</option>
+</select>
+ 
+<button id="button" class="ui-state-default ui-corner-all">testSidebar</button>
 
-<html lang="ja">
-    <head>
-        <meta charset="utf-8" />
-        <title></title>
-    </head>
-    <body>
-        <div class="css_table">
-            <div class="css_tr">
-                <div class="css_td">123</div>
-                <div class="css_td">122</div>
-                <div class="css_td">121</div>
-                <div class="css_td">0.0.0</div>
-                <div class="css_td">123</div>
-                <div class="css_td">0.0.0</div>
-                <div class="css_td">123</div>
-                <div class="css_td">0.0.0</div>
-                <div class="css_td">123</div>
-                <div class="css_td">0.0.0</div>
-                <div class="css_td">123</div>
-                <div class="css_td">0.0.0</div>
-                <div class="css_td">123</div>
-                <div class="css_td">0.0.0</div>
-                <div class="css_td">123</div>
-                <div class="css_td">0.0.0</div>
-                <div class="css_td">123</div>
-            </div>
-            <div class="tr">
-                <div class="css_td">0.0.0</div>
-                <div class="css_td">123</div>
-            </div>
-        </div>
-    </body>
-</html>
+<div class="side-bar" name="sidebar" id="sidebar">
+    <ul>
+        <li><a href="products.cshtml">← Back to Menu</a></li>
+        @{
+            Database connect = Database.Open("RazorWeb");
+            var data = connect.Query("select * from products").ToArray();
+            foreach(var i in data)
+            {
+                <li><a href="product.cshtml?ID=@i.ID">@i.Name</a></li>
+            }
+        }
+        <li><a href="thermotracker.cshtml">THERMOTRACKER®</a></li>
+        <li><a href="prowin2.cshtml"> 	THERMOTRAKER control software </a></li>
+        <li><a href="other.cshtml">Others</a></li>  
+    </ul>
+</div>
+ 

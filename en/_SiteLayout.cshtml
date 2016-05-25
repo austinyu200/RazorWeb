@@ -1,7 +1,15 @@
 ﻿@{
-    var lang = "";
-}
+    string ja = new UriBuilder(Request.Url)
+                {
+                    Path = Request.Url.LocalPath.Replace("en","ja")
 
+                }.ToString();
+    string zh = new UriBuilder(Request.Url)
+    {
+        Path = Request.Url.LocalPath.Replace("en","zh-tw")
+
+    }.ToString();
+}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -76,9 +84,9 @@
                 <div class="float-right">
                     <Br /><Br />
                     <select onchange="javascript:location.href=this.value;">
-                        <option value="~/zh-tw/Default.cshtml">正體中文</option>
+                        <option value="@zh">正體中文</option>
                         <option selected="true" value="~/en/Default.cshtml">English</option>
-                        <option value="~/ja/Default.cshtml">日本語で</option>
+                        <option value="@ja">日本語で</option>
                     </select>
                 </div>
             </div>

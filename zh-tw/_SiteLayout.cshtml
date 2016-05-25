@@ -1,6 +1,17 @@
 ﻿@{
     var lang = "";
-    string en = "~/en/Default.cshtml";
+    string url = Request.Url.AbsoluteUri;
+    var test = new UriBuilder(url).Path;
+    string en = new UriBuilder(Request.Url)
+                {
+                    Path = Request.Url.LocalPath.Replace("zh-tw","en")
+
+                }.ToString();
+    string ja = new UriBuilder(Request.Url)
+                {
+                    Path = Request.Url.LocalPath.Replace("zh-tw","ja")
+
+                }.ToString();        
 }
 
 <!DOCTYPE html>
@@ -66,8 +77,6 @@
         <footer class="footer">
             <div class="content-wrapper">
                 <div class="float-left">
-                    <!--<p>@Request.Url.PathAndQuery</p>
-                    <p>@en</p>-->
                     <p>Copyright &copy; @DateTime.Now.Year - 台技工業設備股份有限公司 All rights reserved.</p>
                     <p>台灣桃園縣大園鄉水源路913號</p>
                     <p>電話: 886-3-386-7575 </p>
@@ -80,9 +89,8 @@
                 <div class="float-right">
                     <Br /><Br />
                     <select  onchange="javascript:location.href=this.value;">
-                        <option selected="true" value="~/zh-tw/Default.cshtml">正體中文</option>
-                        <option value="~/en/Default.cshtml">English</option>                        
-                        <!--<option value="@Request.Url.Segments[1]")>English</option>-->                        
+                        <option selected="true" value="~/zh-tw/Default.cshtml">正體中文</option>           
+                        <option value="@en">English</option>                    
                         <option value="~/ja/Default.cshtml">日本語で</option>
                     </select>
                 </div>
