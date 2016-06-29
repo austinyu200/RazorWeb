@@ -1,4 +1,4 @@
-@{
+﻿@{
     Layout = "~/zh-tw/_SiteLayout.cshtml"; 
     string metaKeyword = null;
     string name = null;
@@ -13,7 +13,8 @@
 
 <div>
     @{
-        Database connect = Database.Open("RazorWeb");
+        //跨資料表圖片路徑對拷
+        @*Database connect = Database.Open("RazorWeb");
         var data = connect.Query("select * from products").ToArray();
         for(int i =0; i < data.Length;i++)
         {
@@ -22,7 +23,15 @@
             <li>@images[i]</li>
             string com = "update products_en set Image1 = @0 where ID = @1";
             connect.Execute(com,images[i],i+1);
-        }
+        }*@
+
+        //調換圖片路徑
+        @*Database con = Database.Open("RazorWeb");
+        var data1 = con.Query("select * from products_en where id = 11").ToArray();
+        var data2 = con.Query("select * from products_en where id = 13").ToArray();
+        string query = "update products_en set Image1 = @0 where ID = @1";
+        con.Execute(query,data1[0].Image1,13);
+        con.Execute(query,data2[0].Image1,11);*@
     }
 </div>
 
