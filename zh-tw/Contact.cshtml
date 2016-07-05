@@ -22,7 +22,7 @@
 		<div class="content-left">
 			<div class="contact">
 				<br>			
-				<form class="email-content" id="mailForm" name="mailForm" method="post" onsubmit="return check()" action="send.cshtml">
+				<form class="email-content" id="mailForm" name="mailForm" method="post" onsubmit="return check()" action="~/zh-tw/send.cshtml">
 					公司、單位名稱<br>
 					<input type="text" id="company" name="company" @Validation.For("company")>
 					@Html.ValidationMessage("company")<br>

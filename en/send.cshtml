@@ -9,6 +9,7 @@
         string email = Request.Form["email"];
         string phone = Request.Form["phone"];
         string discript = Request.Form["discript"].ToString();
+        string message ="來信公司\\單位: " + company + "<br>" + "來信公司\\單位之聯絡信箱: " + email + "<br>" + "連絡電話: " + phone + "<br><br>" + discript + "<br><br><br>此信件為系統自動產生，請勿直接回信";
         <text>
             @company<br>
             @email<br>
@@ -26,8 +27,8 @@
             WebMail.From = WebMail.UserName;                //同寄件郵件帳戶
             
             WebMail.Send(to: "austinyu200@yahoo.com.tw",    //收件者
-                         subject:company + "來信",          //標題
-                         body: discript);                   //內容
+                         subject:company + "來信詢問",          //標題
+                         body: message);                   //內容
         }
         catch(Exception e)
         {
@@ -43,6 +44,6 @@
         <title></title>
     </head>
     <body>
-		<h1>Your e-mail has been successfully sent, thank you for your visit.</h1>
+		<h1>Your e-mail has been successfully send, thank you for your visit.</h1>
     </body>
 </html>
