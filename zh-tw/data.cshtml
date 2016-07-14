@@ -26,7 +26,7 @@
         }*@
 
         //調換圖片路徑
-        Database con = Database.Open("RazorWeb");
+        <!--Database con = Database.Open("RazorWeb");
         var data1 = con.Query("select * from products_en where id = 11").ToArray();
         <p>@data1[0].ID</p>
         <p>@data1[0].Name</p>
@@ -37,7 +37,7 @@
         <p>@data2[0].Name</p>
         <p>@data2[0].Content</p>
         <p>@data2[0].Image1</p>
-        string query = "update products_en set Name = @0 Content = @1 Image1 = @3 where ID = @4";
+        string query = "update products_en set Name = @0 Content = @1 Image1 = @3 where ID = @4";-->
         //con.Execute(query,data1[0].Name,data1[0].Content,data1[0].Image1,13);
         //con.Execute(query,data2[0].Name,data2[0].Content,data2[0].Image1,11);
     }

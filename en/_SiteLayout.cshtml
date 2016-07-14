@@ -1,21 +1,35 @@
 ﻿@{
-    string ja = new UriBuilder(Request.Url)
-                {
-                    Path = Request.Url.LocalPath.Replace("en","ja")
+    string description = "Tangteck Equipment Inc was founded in Dec.1988 by a group of engineers talented in Surface Mount Technology (SMT) processing, Thermal processing and Hybrids Circuit & Thick-Film technology. Tangteck is a very technically oriented company.";
 
-                }.ToString();
+    string ja = new UriBuilder(Request.Url)
+    {
+        Path = Request.Url.LocalPath.Replace("en","ja")
+    }.ToString();
+
     string zh = new UriBuilder(Request.Url)
     {
         Path = Request.Url.LocalPath.Replace("en","zh-tw")
-
     }.ToString();
+}
+
+@{
+    string query = Request.Url.Query;
+
+    if(query.Contains("ID"))
+    {
+        Database db = Database.Open("RazorWeb");
+        var data = db.Query("select * from products_en where ID = " + Request.QueryString["ID"]).ToArray();
+        var resault = ((data[0].Content) as string).Split('。');
+        description = resault[0] + "." + resault[1] + "." + resault[2];
+    }
 }
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta charset="utf-8" />
-        <title>@Page.Title - Tangteck Equipment Inc.</title>
+        <title>@Page.Title - Tangteck Equipment Inc.</title>        
+        <meta name="description" content="@description" />
         <link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
         <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />        
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />

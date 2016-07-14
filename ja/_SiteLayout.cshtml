@@ -11,6 +11,17 @@
     }.ToString();
 }
 
+@{
+    string query = Request.Url.Query;
+
+    if(query.Contains("ID"))
+    {
+        var resault = ((data[0].Content) as string).Split('。');
+        Database db = Database.Open("RazorWeb");
+        var data = db.Query("select * from jp where ID = " + Request.QueryString["ID"]).ToArray();
+        description = resault[0] + "." + resault[1] + "." + resault[2];
+}
+
 <!DOCTYPE html>
 <html lang="ja">
     <head>
