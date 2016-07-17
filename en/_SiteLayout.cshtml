@@ -1,6 +1,6 @@
 ﻿@{
     string description = "Tangteck Equipment Inc was founded in Dec.1988 by a group of engineers talented in Surface Mount Technology (SMT) processing, Thermal processing and Hybrids Circuit & Thick-Film technology. Tangteck is a very technically oriented company.";
-
+    string keywords = "Tangteck,SMT,reflow,furnace,oven,solar cell,drying equipment";
     string ja = new UriBuilder(Request.Url)
     {
         Path = Request.Url.LocalPath.Replace("en","ja")
@@ -13,14 +13,33 @@
 }
 
 @{
-    string query = Request.Url.Query;
+    string query = (Request.Url).ToString();
+    Database db = Database.Open("RazorWeb");
 
     if(query.Contains("ID"))
-    {
-        Database db = Database.Open("RazorWeb");
+    {        
         var data = db.Query("select * from products_en where ID = " + Request.QueryString["ID"]).ToArray();
         var resault = ((data[0].Content) as string).Split('。');
         description = resault[0] + "." + resault[1] + "." + resault[2];
+        keywords = "Tangteck," + (data[0].Name) as string;
+    }
+    else if(query.Contains("thermotracker"))
+    {
+        description = "THERMOTRACKER® is a high precision temperature measuring/logging system, which can measure and analyze the temperature profile through the most accurate and easiest way. It can be used in SMT, PCB, computer, electronic, paint, food and pharmaceutical industry." ;
+        keywords = "Tangteck,THERMOTRACKER";
+    }
+    else if(query.Contains("prowin2"))
+    {
+        description = "ProWin2 is a control software to connect computer and THERMOTRACKER®. Provide Engilish/Chinese(traditional) or English/Japanse.";
+        keywords = "Tangteck, ProWin2";
+    }
+    else if(query.Contains("other"))
+    {
+        keywords = "Tangteck,other";
+    }
+    else if(query.Contains("about"))
+    {
+        keywords = "About Tangteck";
     }
 }
 <!DOCTYPE html>
@@ -30,6 +49,7 @@
         <meta charset="utf-8" />
         <title>@Page.Title - Tangteck Equipment Inc.</title>        
         <meta name="description" content="@description" />
+        <meta name="keywords" content="@keywords"/>
         <link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
         <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />        
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -46,7 +66,7 @@
             <div class="content-wrapper">
                 <div class="float-left">
                     <p class="site-title">
-                        <a href="~/en/"><img class="logo" src="~/Images/mark2.png"></img></a>
+                        <a href="~/en/"><img class="logo" src="~/Images/mark2.png" alt="Logo"></img></a>
                     </p>
                 </div>
                 <div class="float-right">
@@ -100,7 +120,6 @@
                     <select onchange="javascript:location.href=this.value;">
                         <option value="@zh">繁體中文</option>
                         <option selected="true" value="~/en/Default.cshtml">English</option>
-                        <option value="@ja">日本語で</option>
                     </select>
                 </div>
             </div>

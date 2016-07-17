@@ -1,5 +1,7 @@
 ﻿@{
     string description = "台技工業設備股份有限公司成立於1988年12月16日，秉持著誠信、服務、品質、創新、環保為永續經營之理念，隨著近年來電子產業技術層次迅速的提昇，台技本著不斷自我要求以超越自我；研發創新以力求設備之高品質及專業技術服務之觀念，服務廣大的客戶群。 近二十年來，台技主力產品已行銷至世界多國，開拓行銷海外之市場；對產品設備不斷研發創新，所累積之豐富經驗及技術，已建立良好口碑，更受台灣及海外客戶所肯定。"; 
+    string keywords = "台技工業設備,迴焊爐,燒成爐,燒結爐,氮氣爐,工業烘箱,高溫爐,連續爐,氣氛爐,乾燥爐,玻璃烤爐,太陽能,加熱設備";
+
     string en = new UriBuilder(Request.Url)
                 {
                     Path = Request.Url.LocalPath.Replace("zh-tw","en")
@@ -13,14 +15,33 @@
 }
 
 @{
-    string query = Request.Url.Query;
+    string query = (Request.Url).ToString();
+    Database db = Database.Open("RazorWeb");
 
     if(query.Contains("ID"))
-    {
-        Database db = Database.Open("RazorWeb");
+    {        
         var data = db.Query("select * from products where ID = " + Request.QueryString["ID"]).ToArray();
         var resault = ((data[0].Content) as string).Split('。');
         description = resault[0] + "." + resault[1] + "." + resault[2];
+        keywords = "Tangteck," + (data[0].Name) as string;
+    }
+    else if(query.Contains("thermotracker"))
+    {
+        description = "THERMOTRACKER®測溫系統是一套高精確度的溫度量測系統，可以用來精確的測量並分析工作物上的實際溫度曲線，供製程分析及品質管制之用，適用於SMD組裝製造業、電子、電腦製造廠、PC板製造業、烤漆業、食品業、藥品業...等。" ;
+        keywords = "Tangteck,測溫器,THERMOTRACKER";
+    }
+    else if(query.Contains("prowin2"))
+    {
+        description = "透過ProWin2軟體，將電腦和THERMOTRACKER®測溫器聯結通訊;提供中，英文作業環境模式切換。";
+        keywords = "Tangteck, ProWin2";
+    }
+    else if(query.Contains("other"))
+    {
+        keywords = "Tangteck,其他產品";
+    }
+    else if(query.Contains("about"))
+    {
+        keywords = "About Tangteck";
     }
 }
 
@@ -31,6 +52,7 @@
         <meta charset="utf-8" />
         <title>@Page.Title - 台技工業設備</title>
         <meta name="description" content="@description" />
+        <meta name="keywords" content="@keywords"/>
         <link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
         <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />        
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -102,7 +124,6 @@
                     <select  onchange="javascript:location.href=this.value;">
                         <option selected="true" value="~/zh-tw/Default.cshtml">繁體中文</option>           
                         <option value="@en">English</option>                    
-                        <option value="~/ja/Default.cshtml">日本語で</option>
                     </select>
                 </div>
             </div>
