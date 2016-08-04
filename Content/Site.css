@@ -471,7 +471,7 @@ aside {
         margin-left: 15px;
     }
 
-    #loginForm .validation-summar.{
+    #loginForm .validation-summary-valid{
         margin: 0;
         padding: 0;
     }
@@ -923,9 +923,6 @@ tr.pager td {
     float: left;
 }
 
-.contact {
-  /*width: calc(100% / 2);*/
-}
 
 .map-wrapper {
   width: 100%;
@@ -1004,6 +1001,12 @@ div.page-header-left{
         height: 0px;
         width: 0px;
     }
+}
+
+@media screen and (max-height: 1403px) and (max-width: 901px){
+    .side-bar{
+        height: 0px;
+        width: 0px;
 }
 
 @media(max-width: 330px){

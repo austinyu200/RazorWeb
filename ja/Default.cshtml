@@ -7,6 +7,47 @@
   #button { padding: .5em 1em; text-decoration: none; }
   #effect { width: 240px; height: 135px; padding: 0.4em; position: relative; }
   #effect h3 { margin: 0; padding: 0.4em; text-align: center; }
+
+  .effeckt-demo-list-scroll > ul {
+    width: 32%;
+    float: left;
+    margin-right: 2%;
+    margin-bottom: 2%;
+  }
+
+  .effeckt-list-scroll {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-perspective: 400px;
+    perspective: 400px;
+  }
+
+  .effeckt-list-scroll {
+    width: 230px;
+    height: 480px;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    list-style: none;
+}
+
+[data-effeckt-type="fade"] li {
+    transition: opacity 250ms ease-in-out;
+}
+
+.effeckt-list-scroll > li {
+    position: relative;
+    z-index: 2;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.effeckt-list-scroll > li {
+    color: #252525;
+    font-size: 13.6px;
+}
   </style>
   <script>
   $(function() {
@@ -25,7 +66,7 @@
       }
  
       // run the effect
-      $( "#sidebar" ).show( selectedEffect, options, 500, callback );
+      $( "#scroll" ).show( selectedEffect, options, 500, callback );
     };
  
     //callback function to bring a hidden box back
@@ -41,10 +82,10 @@
     });
     
     $('body').click(function(){
-        $("#sidebar").visible();
+        $("#scroll").visible();
     });
  
-    $( "#sidebar" ).hide();
+    $( "#scroll" ).hide();
   });
   </script>
  
@@ -66,7 +107,7 @@
  
 <button id="button" class="ui-state-default ui-corner-all">testSidebar</button>
 
-<div class="side-bar" name="sidebar" id="sidebar">
+@*<div class="side-bar" name="sidebar" id="sidebar">
     <ul>
         <li><a href="products.cshtml">← Back to Menu</a></li>
         @{
@@ -81,5 +122,22 @@
         <li><a href="prowin2.cshtml"> 	THERMOTRAKER control software </a></li>
         <li><a href="other.cshtml">Others</a></li>  
     </ul>
-</div>
+</div>*@
  
+
+<div class="effect-list-wrap side-bar" name="scroll" id="scroll">
+  <ul  class="effeckt-list-scroll" data-effeckt-type='fade'>
+    <li><a href="products.cshtml">← Back to Menu</a></li>
+        @{
+            Database db = Database.Open("RazorWeb");
+            var res = db.Query("select * from products_en").ToArray();
+            foreach(var i in res)
+            {
+                <li><a href="product.cshtml?ID=@i.ID">@i.Name</a></li>
+            }
+        }
+        <li><a href="thermotracker.cshtml">THERMOTRACKER®</a></li>
+        <li><a href="prowin2.cshtml"> 	THERMOTRAKER control software </a></li>
+        <li><a href="other.cshtml">Others</a></li>  
+  </ul>
+</div>

@@ -1,25 +1,29 @@
 ﻿@{
+    string description = "台技工業設備股份有限公司成立於1988年12月16日，秉持著誠信、服務、品質、創新、環保為永續經營之理念，隨著近年來電子產業技術層次迅速的提昇，台技本著不斷自我要求以超越自我；研發創新以力求設備之高品質及專業技術服務之觀念，服務廣大的客戶群。 近二十年來，台技主力產品已行銷至世界多國，開拓行銷海外之市場；對產品設備不斷研發創新，所累積之豐富經驗及技術，已建立良好口碑，更受台灣及海外客戶所肯定。"; 
+    string keywords = "台技工業設備,迴焊爐,燒成爐,燒結爐,氮氣爐,工業烘箱,高溫爐,連續爐,氣氛爐,乾燥爐,玻璃烤爐,太陽能,加熱設備";
+
     string en = new UriBuilder(Request.Url)
                 {
                     Path = Request.Url.LocalPath.Replace("ja","en")
 
                 }.ToString();
     string zh = new UriBuilder(Request.Url)
-    {
-        Path = Request.Url.LocalPath.Replace("ja","zh-tw")
+                {
+                    Path = Request.Url.LocalPath.Replace("ja","zh-tw")
 
-    }.ToString();
+                }.ToString();        
 }
 
 @{
     string query = Request.Url.Query;
-
+    
     if(query.Contains("ID"))
     {
-        var resault = ((data[0].Content) as string).Split('。');
         Database db = Database.Open("RazorWeb");
         var data = db.Query("select * from jp where ID = " + Request.QueryString["ID"]).ToArray();
+        var resault = ((data[0].Content) as string).Split('。');
         description = resault[0] + "." + resault[1] + "." + resault[2];
+    }
 }
 
 <!DOCTYPE html>
