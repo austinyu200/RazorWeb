@@ -10,23 +10,23 @@
         string phone = Request.Form["phone"];
         string discript = Request.Form["discript"].ToString();
         string message ="來信公司\\單位: " + company + "<br>" + "來信公司\\單位之聯絡信箱: " + email + "<br>" + "連絡電話: " + phone + "<br><br>" + discript + "<br><br><br>此信件為系統自動產生，請勿直接回信";
-        <text>
+        @*<text>
             @company<br>
             @email<br>
             @phone<br>
             @discript<br>
-        </text>
+        </text>*@
 
         try
         {
-            WebMail.SmtpServer = "smtp.live.com";   //寄件smtp server
-            WebMail.SmtpPort = 587;                          //smtp port
+            WebMail.SmtpServer = "vmail.seed.net.tw";   //寄件smtp server
+            WebMail.SmtpPort = 25;                          //smtp port
             WebMail.EnableSsl = true;                       //啟用SSL
-            WebMail.UserName = "austinyu200@livemail.tw";                          //寄件郵件帳戶 
-            WebMail.Password = "M3TBT7NB";
+            WebMail.UserName = "service@tangteck.com";                          //寄件郵件帳戶 
+            WebMail.Password = "v0005119";
             WebMail.From = WebMail.UserName;                //同寄件郵件帳戶
             
-            WebMail.Send(to: "austinyu200@yahoo.com.tw",    //收件者
+            WebMail.Send(to: "service@tangteck.com",    //收件者
                          subject:company + "來信詢問",          //標題
                          body: message);                   //內容
         }
