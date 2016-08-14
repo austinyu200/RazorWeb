@@ -5,13 +5,17 @@
 
 @{
 	Layout = "~/zh-tw/_SiteLayout.cshtml";
-	Page.Title = "聯絡我們";	
+	Page.Title = "聯絡我們";
+
+	string emailMessage = "E-Mail格式錯誤";
+	Validation.Add("email",Validator.Required(emailMessage),Validator.Regex("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*","E-Mail格式錯誤"));
+    //Validation.Add()
+
 	Validation.RequireField("company","請填寫公司、單位名稱");
-    Validation.RequireField("email","請填寫E-Mail");
+    //Validation.RequireField("email","請填寫E-Mail");
     Validation.RequireField("phone","請填寫電話");
     Validation.RequireField("discript","請填寫內容");
 }
-
 
 
 <div id="body">

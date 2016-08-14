@@ -6,8 +6,12 @@
 @{
 	Layout = "~/en/_SiteLayout.cshtml";
 	Page.Title = "Contact";	
+
+    string emailMessage = "E-Mail format error";
+	Validation.Add("email",Validator.Required(emailMessage),Validator.Regex("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*","E-Mail format error"));
+
 	Validation.RequireField("company","This field can't be void");
-    Validation.RequireField("email","This field can't be void");
+    //Validation.RequireField("email","This field can't be void");
     Validation.RequireField("phone","This field can't be void");
     Validation.RequireField("discript","This field can't be void");
 }
