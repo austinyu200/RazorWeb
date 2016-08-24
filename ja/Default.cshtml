@@ -49,63 +49,9 @@
     font-size: 13.6px;
 }
   </style>
-  <script>
-  $(function() {
-    // run the currently selected effect
-    function runEffect() {
-      // get effect type from
-      var selectedEffect = $( "#effectTypes" ).val();
- 
-      // most effect types need no options passed by default
-      var options = {};
-      // some effects have required parameters
-      if ( selectedEffect === "scale" ) {
-        options = { percent: 100 };
-      } else if ( selectedEffect === "size" ) {
-        options = { to: { width: 280, height: 185 } };
-      }
- 
-      // run the effect
-      $( "#scroll" ).show( selectedEffect, options, 500, callback );
-    };
- 
-    //callback function to bring a hidden box back
-    function callback() {
-      /*setTimeout(function() {
-        $( "#sidebar:visible" ).removeAttr( "style" ).fadeOut();
-      }, 1000 );*/
-    };
- 
-    // set effect from select menu value
-    $( "#button" ).click(function() {
-      runEffect();
-    });
-    
-    $('body').click(function(){
-        $("#scroll").visible();
-    });
- 
-    $( "#scroll" ).hide();
-  });
-  </script>
- 
-<select name="effects" id="effectTypes">
-  <option value="blind">Blind</option>
-  <option value="bounce">Bounce</option>
-  <option value="clip">Clip</option>
-  <option value="drop">Drop</option>
-  <option value="explode">Explode</option>
-  <option value="fold">Fold</option>
-  <option value="highlight">Highlight</option>
-  <option value="puff">Puff</option>
-  <option value="pulsate">Pulsate</option>
-  <option value="scale">Scale</option>
-  <option value="shake">Shake</option>
-  <option value="size">Size</option>
-  <option value="slide">Slide</option>
-</select>
- 
-<button id="button" class="ui-state-default ui-corner-all">testSidebar</button>
+
+
+
 
 @*<div class="side-bar" name="sidebar" id="sidebar">
     <ul>
@@ -123,9 +69,29 @@
         <li><a href="other.cshtml">Others</a></li>  
     </ul>
 </div>*@
- 
 
-<div class="effect-list-wrap side-bar" name="scroll" id="scroll">
+
+@*<div class="right-bar" id="tranTarget">
+  
+  <button id="tranBtn">|||</button>
+  
+  <ul  class="">
+    <li><a href="products.cshtml">← Back to Menu</a></li>
+        @{
+            Database db1 = Database.Open("RazorWeb");
+            var res1 = db1.Query("select * from products_en").ToArray();
+            foreach(var i in res1)
+            {
+                <li><a href="product.cshtml?ID=@i.ID">@i.Name</a></li>
+            }
+        }
+        <li><a href="thermotracker.cshtml">THERMOTRACKER®</a></li>
+        <li><a href="prowin2.cshtml"> 	THERMOTRAKER control software </a></li>
+        <li><a href="other.cshtml">Others</a></li>  
+  </ul>
+</div> *@
+
+<div class="effect-list-wrap right-bar" name="scroll" id="scroll">
   <ul  class="effeckt-list-scroll" data-effeckt-type='fade'>
     <li><a href="products.cshtml">← Back to Menu</a></li>
         @{
@@ -140,4 +106,47 @@
         <li><a href="prowin2.cshtml"> 	THERMOTRAKER control software </a></li>
         <li><a href="other.cshtml">Others</a></li>  
   </ul>
+  <button id="tranBtn">三</button>
 </div>
+
+<script>
+  
+  var tBtn = document.getElementById("tranBtn"); 
+
+  var rBar = document.querySelector(".right-bar");
+
+  var classBak = (!rBar) ? "" : rBar.className;
+
+  var btnClassBak = (!tBtn) ?　"" : tBtn.className;
+
+  if (!!tBtn) {
+
+    tBtn.addEventListener("click", function () {
+
+      if (!!rBar) {
+      
+        if (rBar.className.indexOf("active") != -1) {
+        
+          rBar.className = classBak;
+
+          tBtn.className = btnClassBak; 
+
+          tBtn.textContent = "三";
+
+        } else {
+        
+          rBar.className += " active ";
+
+          tBtn.className += " active ";
+
+          tBtn.textContent = "X";
+        }
+      
+      }
+
+    });
+
+  } else {
+    console.log("Btn not found.");
+  }
+</script>
