@@ -12,6 +12,7 @@
     //Validation.Add()
 
 	Validation.RequireField("company","請填寫公司、單位名稱");
+    Validation.RequireField("name","請填寫姓名");
     //Validation.RequireField("email","請填寫E-Mail");
     Validation.RequireField("phone","請填寫電話");
     Validation.RequireField("discript","請填寫內容");
@@ -30,6 +31,9 @@
 					公司、單位名稱<br>
 					<input type="text" id="company" name="company" @Validation.For("company")>
 					@Html.ValidationMessage("company")<br>
+                    姓名<br>
+					<input type="text" id="name" name="name" @Validation.For("name")>
+					@Html.ValidationMessage("name")<br>
 					E-mail<br>
 					<input type="text" id="email" name="email" @Validation.For("email")>
 					@Html.ValidationMessage("email")<br>

@@ -6,12 +6,15 @@
 	if(IsPost)
 	{
 		string company = Request.Form["company"];
+        string name = Request.Form["name"];
         string email = Request.Form["email"];
         string phone = Request.Form["phone"];
         string discript = Request.Form["discript"].ToString();
-        string message ="來信公司\\單位: " + company + "<br>" + "來信公司\\單位之聯絡信箱: " + email + "<br>" + "連絡電話: " + phone + "<br><br>" + discript + "<br><br><br>此信件為系統自動產生，請勿直接回信";
+        string message ="來信公司\\單位: " + company + "<br>" + "姓名: " + name + "<br>" + "來信公司\\單位之聯絡信箱: " + email + "<br>" + "連絡電話: " + phone + "<br><br>" + discript + "<br><br><br>此信件為系統自動產生，請勿直接回信";
+        bool IsSuccess = false;
         @*<text>
             @company<br>
+            @name<br>
             @email<br>
             @phone<br>
             @discript<br>
@@ -19,16 +22,16 @@
 
         try
         {
-            WebMail.SmtpServer = "vmail.seed.net.tw";   //寄件smtp server
-            WebMail.SmtpPort = 25;                          //smtp port
-            WebMail.EnableSsl = false;                       //啟用SSL
-            WebMail.UserName = "service@tangteck.com";                          //寄件郵件帳戶 
-            WebMail.Password = "v0005119";
+            WebMail.SmtpServer = "pollux8.url.com.tw";   //寄件smtp server
+            WebMail.SmtpPort = 587;                          //smtp port
+            WebMail.EnableSsl = true;                       //啟用SSL
+            WebMail.UserName = "noreply@tangteck.com.tw";                          //寄件郵件帳戶 
+            WebMail.Password = "23141312tk";
             WebMail.From = WebMail.UserName;                //同寄件郵件帳戶
-            
             WebMail.Send(to: "service@tangteck.com",    //收件者
                          subject:company + "來信詢問",          //標題
                          body: message);                   //內容
+            IsSuccess = true;
         }
         catch(Exception e)
         {

@@ -11,6 +11,7 @@
 	Validation.Add("email",Validator.Required(emailMessage),Validator.Regex("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*","E-Mail format error"));
 
 	Validation.RequireField("company","This field can't be void");
+    Validation.RequireField("name","This field can't be void");
     //Validation.RequireField("email","This field can't be void");
     Validation.RequireField("phone","This field can't be void");
     Validation.RequireField("discript","This field can't be void");
@@ -30,6 +31,9 @@
 					Company or Unit<br>
 					<input type="text" id="company" name="company" @Validation.For("company")>
 					@Html.ValidationMessage("company")<br>
+                    Name<br>
+					<input type="text" id="name" name="name" @Validation.For("name")>
+					@Html.ValidationMessage("name")<br>
 					E-mail<br>
 					<input type="text" id="email" name="email" @Validation.For("email")>
 					@Html.ValidationMessage("email")<br>
